@@ -1,0 +1,62 @@
+<view class="address-detail">
+  <view wx:for="{{conteenList}}"
+        wx:for-index="index"
+        wx:key="index">
+      <t-cell
+        title="{{item.dishName}}"
+        description="{{'销量：' + item.soldNum}}"
+        align="{{'top'}}"
+        image="{{item.primaryImage}}"
+        hover
+        bordered="{{false}}"
+        bindtap="updataDish"
+        data-index="{{index}}"
+      />
+  </view>
+<t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="center">
+  <view class="body">
+    <view class="col">
+    <view style="height:80rpx;margin-left: 10px; margin-top: 5px;" class="text">
+      <span>{{titleName}}</span>
+      <span style="margin-left:40%">{{soldNum == 0 ? '' : '销量：' + soldNum}}</span>
+    </view>
+    <view wx:if="{{popupFlag == 1}}" style="margin-left: 25px; margin-top: 10px;" class="wrapper">
+            <t-upload
+            media-type="{{['video','image']}}"
+            files="{{originFiles}}"
+            gridConfig="{{gridConfig}}"
+            bind:success="handleSuccess"
+            bind:remove="handleRemove"
+            bind:click="handleClick"
+            />
+          </view>
+    <t-image wx:if="{{popupFlag == 0}}" style="margin-left: 25px; margin-top: 10px;" src="{{imageSrc}}" width="72" height="72" shape="round" aria-label="一个放置在墙角的黄色行李箱" />
+    </view>
+    
+    <view class="input-example">
+      <t-input style="{{style}}" bind:change="updataDishName" label="菜品名字" placeholder="{{dishName == '' ?  '请输入文字' : dishName}}" />
+      <t-input style="{{style}}" bind:change="updataDishPrice" label="菜品价格" placeholder="{{soldNum == 0 ?  '请输入价格' : soldNum}}" />
+      <t-radio-group default-value="0" borderless t-class="box">
+        <t-radio block="{{false}}" label="热销" value="0" />
+        <t-radio block="{{false}}" label="下架" value="1" />
+      </t-radio-group>  
+      <!-- <t-input style="{{style}}" label="菜品名字" placeholder="请输入文字" /> -->
+      <t-textarea t-class="external-class" label="其他描述" placeholder="{{detailedDescription == 0 ?  '请输入描述' : detailedDescription}}" disableDefaultPadding="{{true}}" />
+      <view style="margin-bottom:10px">
+        <t-button bindtap="updataDishMsg" style="margin-left:35%">提交</t-button>
+        <!-- <t-button style="margin-left:25%">上传</t-button> -->
+      </view>
+    </view>
+  </view>
+  <view class="block">
+    <t-icon t-class="close-btn" name="close-circle" size="32" color="#fff" bind:tap="onClose" />
+  </view>
+</t-popup>
+
+<!-- <t-button block size="large" variant="outline" theme="primary" bind:tap="handlePopup"
+  >居中弹出层-带自定义关闭按钮</t-button
+> -->
+</view>
+<t-fab icon="add" style="bottom: 150rpx; right: 100rpx;" bind:click="handlePopup1" aria-label="增加"></t-fab>
+
+

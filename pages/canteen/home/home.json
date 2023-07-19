@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "首页",
+  "onReachBottomDistance": 10,
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "t-loading": "tdesign-miniprogram/loading/loading",
+    "t-swiper": "tdesign-miniprogram/swiper/swiper",
+    "t-swiper-nav": "tdesign-miniprogram/swiper-nav/swiper-nav",
+    "t-image": "/components/webp-image/index",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-sticky": "tdesign-miniprogram/sticky/sticky",
+    "ec-canvas": "../ec-canvas/ec-canvas",
+    "tabBar": "/custom-tab-bar/index"
+  }
+}

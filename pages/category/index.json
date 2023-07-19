@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "资讯",
+  "component": true,
+  "usingComponents": {
+    "t-fab": "tdesign-miniprogram/fab/fab",
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-upload": "tdesign-miniprogram/upload/upload",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-toast": "tdesign-miniprogram/toast/toast"
+  }
+}

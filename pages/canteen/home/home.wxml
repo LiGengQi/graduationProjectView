@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="move-container">
+  <view class="swiper-wrap" style="padding: 0 24rpx;">
+    <t-swiper
+      wx:if="{{imgSrcs.length > 0}}"
+      current="{{current}}"
+      autoplay="{{autoplay}}"
+      duration="{{duration}}"
+      interval="{{interval}}"
+      navigation="{{navigation}}"
+      imageProps="{{swiperImageProps}}"
+      list="{{imgSrcs}}"
+      bind:click="navToActivityDetail"
+    />
+   
+  </view>
+  <view class="text" style="margin: 13px;">
+    <text style="font-size:20px">人流量趋势预测图</text>
+  </view>
+  <ec-canvas force-use-old-canvas="true" id="mychart-dom-move-bar" canvas-id="mychart-move-bar" ec="{{ ec }}"></ec-canvas>
+  <view class="text" style="margin: 13px;">
+    <text style="font-size:20px">商品好评数量统计图</text>
+  </view>
+  <ec-canvas force-use-old-canvas="true" id="mychart-dom-move-bar" canvas-id="mychart-move-bar" ec="{{ ecP }}"></ec-canvas>  
+  
+ 
+  
+  <!-- <ec-canvas id="mychart-dom-multi-bar" canvas-id="mychart-move-bar" ec="{{ ecBar }}"></ec-canvas>
+  <ec-canvas id="mychart-dom-multi-scatter" canvas-id="mychart-move-bar" ec="{{ ecScatter }}"></ec-canvas>   -->
+  <tabBar id="tabbar" active="1"></tabBar>
+</view>

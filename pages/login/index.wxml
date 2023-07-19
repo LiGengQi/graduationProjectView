@@ -1,0 +1,54 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{!canIUseOpenData}}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      
+      <button style="border-radius: 50%; border: none; margin: 20rpx; position: relative; left: -220rpx; top: 82rpx" 
+              plain="true" 
+              data-id="1" 
+              wx:if="{{canIUseGetUserProfile}}" 
+              bindtap="getUserProfile">
+        <image bindtap="bindViewTap" class="status-avatar" src="image/student.svg" mode="cover"></image>
+      </button>
+      <text style="position: relative; left: -55rpx; top: -103rpx;font-size: larger">学生</text>
+      
+      <button style="border-radius: 50%; border: none; margin: 20rpx; position: relative; left: 220rpx; top: 50rpx" plain="true" data-id="2" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile">
+        <image bindtap="bindViewTap" class="status-avatar" src="image/canteen.svg" mode="cover"></image>
+      </button>
+      <text style="position: relative; left: 96rpx; top: -135rpx;font-size: larger">商家</text>
+      <button style="border-radius: 50%; border: none; margin: 20rpx; position: relative; left: -220rpx; top: 40rpx" plain="true" data-id="3"  wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 
+        <image bindtap="bindViewTap" class="status-avatar" src="image/mana.svg" mode="cover"></image>
+      </button>
+      <text style="position: relative; left: -22rpx; top: -149rpx; font-size: larger">管理员</text>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+    <!-- sample.wxml -->
+    <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="center">
+      <view class="body">
+        <button style="border: none;" class="avatar-wrapper" open-type="chooseAvatar" plain="true" bind:chooseavatar="onChooseAvatar">
+          <image class="avatar" src="{{avatarUrl}}"></image>
+        </button> 
+        <input type="nickname" class="weui-input" bind:change="bindKeyInput" placeholder="请输入昵称"/>
+      </view>
+      <button type="primary" style="border: none;" class="avatar-wrapper" plain="true" bindtap="register">
+        确定
+      </button> 
+      <view class="block">
+        <t-icon t-class="close-btn" name="close-circle" size="32" color="#fff" bind:tap="onClose" />
+      </view>
+    </t-popup>
+<!-- <t-button block size="large" variant="outline" theme="primary" bind:tap="handlePopup"
+  >居中弹出层-带自定义关闭按钮</t-button> -->
+  </view>
+  <t-toast id="t-toast" />
+</view>
+

@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "热力图",
+  "usingComponents": {
+    "cart-group": "./components/cart-group/index",
+    "cart-empty": "./components/cart-empty/index",
+    "cart-bar": "./components/cart-bar/index",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-switch": "tdesign-miniprogram/switch/switch"
+  }
+}

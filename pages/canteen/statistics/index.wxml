@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="move-container">
+  <view class="text" style="margin: 13px;">
+    <text style="font-size:20px">热销商品统计</text>
+  </view>
+  <ec-canvas force-use-old-canvas="true" id="mychart-dom-move-bar" canvas-id="mychart-move-bar" ec="{{ ecBar }}"></ec-canvas>
+  <view class="text" style="margin: 13px;">
+    <text style="font-size:20px">本店今日客流量与平均客流量</text>
+  </view>
+  <ec-canvas force-use-old-canvas="true" id="mychart-dom-move-bar" canvas-id="mychart-move-bar" ec="{{ ecScatter }}"></ec-canvas>  
+  <view class="text" style="margin: 13px;">
+    <text style="font-size:20px">分时段客流量</text>
+  </view>
+  <ec-canvas force-use-old-canvas="true" id="mychart-dom-move-bar" canvas-id="mychart-move-bar" ec="{{ ec }}"></ec-canvas>
+ 
+  
+  <tabBar id="tabbar" active="1"></tabBar>
+
+</view>

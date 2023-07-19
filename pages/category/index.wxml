@@ -1,0 +1,70 @@
+<!-- 仿微信朋友圈 -->
+<scroll-view class='page'>
+  <!-- 列表 -->
+  <view class='CircleList' 
+        wx:for='{{DataSource}}'
+        wx:key="index" 
+        wx:for-index="idx" 
+        wx:for-item="item">
+    <!-- 头像、昵称、内容 -->
+    <view class='body-view'>
+      <!-- 头像 -->
+      <view class='left-view'>
+        <image class='user-icon' src='{{item.userImg}}'></image>
+      </view>
+      <view class='right-view'>
+        <!-- 昵称 -->
+        <view class='user-name-view'>
+          <label class='user-name'>{{item.userName}}</label>
+        </view>
+        <!-- 内容 -->
+        <view class='user-content-view'>
+          <text class='user-content'>{{item.content}}</text>
+        </view>
+        <!-- 图片 -->
+        <view wx:if="{{item.resourceUrl.length != 0}}" class='photo-view'>
+          <view class='photo' wx:for='{{item.resourceUrl}}' wx:key="index" wx:for-item="imgUrl" style='width:{{photoWidth}}px;height:{{photoWidth}}px'>
+            <image bindtap='LookPhoto' data-index="{{idx}}" data-photUrl='{{imgUrl}}' src='{{imgUrl}}' style='width:{{photoWidth}}px;height:{{photoWidth}}px'></image>
+          </view>
+        </view>
+        <!-- 时间、删除按钮 -->
+        <view class='TDD-view'>
+          <label style="color: rgb(122, 122, 122);">{{item.infoTime}}</label>
+          <button wx:if="{{item.openId == getApp().globalData.openId}}" data-index="{{idx}}" bindtap='delete'>删除</button>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</scroll-view>
+<t-fab icon="add" style="bottom: 150rpx; right: 100rpx;" bind:click="handlePopup" aria-label="增加"></t-fab>
+
+<t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="bottom">
+  <view class="block">
+      <view class="header">
+        <view class="btn btn--cancel" aria-role="button">取消</view>
+        <view class="title">编辑内容</view>
+        <view class="btn btn--confirm" bindtap="submitInfo" aria-role="button">发布</view>
+      </view>
+      <scroll-view scroll-y="true" style="height: 300rpx;">
+        <view>
+          <view style="margin: 50rpx;" class="section">
+            <textarea value="{{content}}" auto-height placeholder="请输入你的内容" />
+          </view>
+        </view>
+        <view class="body-view">
+          <view class="wrapper">
+            <t-upload
+            media-type="{{['video','image']}}"
+            files="{{originFiles}}"
+            gridConfig="{{gridConfig}}"
+            bind:success="handleSuccess"
+            bind:remove="handleRemove"
+            bind:click="handleClick"
+            />
+          </view>
+        </view>
+      </scroll-view>    
+  </view>
+</t-popup>
+<t-toast id="t-toast" />

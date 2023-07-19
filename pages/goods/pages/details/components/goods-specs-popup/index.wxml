@@ -1,0 +1,37 @@
+<t-popup visible="{{show}}" placement="bottom" bind:visible-change="handlePopupHide">
+  <view class="popup-container">
+    <view class="popup-close" bindtap="handlePopupHide">
+      <t-icon name="close" size="36rpx" />
+    </view>
+    <view class="popup-sku-header">
+      <t-image t-class="popup-sku-header__img" src="{{src}}" />
+      <view class="popup-sku-header__goods-info">
+        <view class="popup-sku__goods-name">{{title}}</view>
+        <view class="goods-price-container">
+          <slot name="goods-price" />
+        </view>
+      </view>
+    </view>
+    
+    <view wx:if="{{outOperateStatus}}" class="single-confirm-btn {{!isStock ? 'disabled' : ''}}" bindtap="specsConfirm">
+      确定
+    </view>
+    <view
+      class="popup-sku-actions flex flex-between {{!isStock ? 'popup-sku-disabled' : ''}}"
+      wx:if="{{!outOperateStatus}}"
+    >
+      <!-- <view class="sku-operate">
+        <view class="selected-sku-btn sku-operate-addCart {{!isStock ? 'disabled' : ''}}" bindtap="addCart">
+          加入购物车
+        </view>
+      </view>
+      <view class="sku-operate">
+        <view class="selected-sku-btn sku-operate-buyNow  {{!isStock ? 'disabled' : ''}}" bindtap="buyNow">
+          立即购买
+        </view>
+      </view> -->
+    </view>
+    <slot name="bottomSlot" />
+  </view>
+</t-popup>
+<t-toast id="t-toast" />

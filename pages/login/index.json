@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "晶琪食堂吧",
+  "component": true,
+  "usingComponents": {
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-toast": "tdesign-miniprogram/toast/toast"
+  }
+}

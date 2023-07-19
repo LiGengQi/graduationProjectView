@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "数据统计",
+  "onReachBottomDistance": 10,
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "ec-canvas": "../ec-canvas/ec-canvas",
+    "tabBar": "/custom-tab-bar/index"
+  }
+}

@@ -1,0 +1,39 @@
+.avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.block {
+  position: relative;
+  width: 300px;
+  /* height: 400px; */
+  background: #fff;
+  border-radius: 16rpx;
+}
+
+.box {
+  padding: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.close-btn {
+  position: absolute;
+  left: 50%;
+  margin-left: -32rpx;
+  bottom: calc(-1 * (48rpx + 64rpx));
+}
+
+.wrapper {
+  margin: 32rpx;
+  display: block;
+}
+
+.input-example {
+  margin: 0 32rpx;
+}
+.external-class {
+  height: 256rpx;
+}

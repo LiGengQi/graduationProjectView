@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="move-container">
+ <t-collapse theme="card" defaultValue="{{[0]}}" expandMutex expandIcon>
+  <t-collapse-panel wx:for="{{canteenList}}"
+    wx:for-index="index"
+    wx:key="index"
+    header="{{item.poName}}" value="{{index}}">
+    <view class="col">
+      <span>
+      <t-image style="margin-left: 15px;" src="{{item.imageSrc}}" width="72" height="72" shape="round" aria-label="一个放置在墙角的黄色行李箱" />
+      <view style="margin-left:10%;display:inline-block;">
+        <span style="font-size:17px">{{item.canName}}</span>
+      </view>
+      </span>
+    </view>
+    <t-input prefixIcon="cart" label="店铺名称" placeholder="请输入文字" value="{{item.canName}}" />
+    <t-input prefixIcon="view-module" label="店铺简介" placeholder="请输入文字" value="{{item.detail}}"/>
+    <t-input prefixIcon="user" label="商家姓名" placeholder="请输入文字" value="{{item.userName}}" />
+    <t-input prefixIcon="mobile" label="商家手机号" placeholder="请输入文字" value="{{item.phoneNum}}" />
+
+    <t-button data-index="{{index}}" bind:tap="showSuccessToast" style="margin-top: 5%;margin-left:10%; margin-right: 30%;" theme="primary" icon="edit-1" shape="circle" size="large" class="margin" aria-label="搜索"></t-button>
+    <t-button data-index="{{index}}" bind:tap="showWarningToast" style="margin-top: 5%;" theme="danger" icon="delete" shape="circle" size="large" class="margin" aria-label="搜索"></t-button>
+    
+  </t-collapse-panel>
+</t-collapse>
+
+  <tabBar id="tabbar" active="1"></tabBar>
+  <t-toast id="t-toast" />
+</view>
